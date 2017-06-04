@@ -17,7 +17,7 @@ namespace ImageBox
         public int Width { get; private set; }
         public int Height { get; private set; }
 
-        public readonly uint Shader;
+        public readonly uint ShaderProgram;
 
         public GlImage(Bitmap bitmap)
         {
@@ -37,9 +37,9 @@ namespace ImageBox
             Gl.TexParameter(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_NEAREST);
             Gl.BindTexture(Gl.GL_TEXTURE_2D, 0);
 
-            Shader = Gl.CreateProgram();
+            ShaderProgram = Gl.CreateProgram();
 
-            Gl.AttachShader(Shader, CreateShader(Gl.GL_VERTEX_SHADER, @"
+            Gl.AttachShader(ShaderProgram, CreateShader(Gl.GL_VERTEX_SHADER, @"
                 #version 150
                 in vec3 vert;
                 in vec2 vertTexCoord;
@@ -52,7 +52,7 @@ namespace ImageBox
                     gl_Position = vec4(vert, 1);
                 }
             "));
-            Gl.AttachShader(Shader, CreateShader(Gl.GL_FRAGMENT_SHADER, @"
+            Gl.AttachShader(ShaderProgram, CreateShader(Gl.GL_FRAGMENT_SHADER, @"
                 #version 150
                 uniform sampler2D tex; 
                 in vec2 fragTexCoord;
@@ -63,17 +63,17 @@ namespace ImageBox
                 }
                 "));
 
-            Gl.LinkProgram(Shader);
+            Gl.LinkProgram(ShaderProgram);
             var success = new int[1];
-            Gl.GetProgram(Shader, Gl.GL_LINK_STATUS, success);
+            Gl.GetProgram(ShaderProgram, Gl.GL_LINK_STATUS, success);
 
-            Gl.ValidateProgram(Shader);
-            Gl.GetProgram(Shader, Gl.GL_LINK_STATUS, success);
+            Gl.ValidateProgram(ShaderProgram);
+            Gl.GetProgram(ShaderProgram, Gl.GL_LINK_STATUS, success);
 
-            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(Shader, "Vert"));
-            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(Shader, "Vert"), 3, Gl.GL_FLOAT, false, 3 * sizeof(float), IntPtr.Zero);
-            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(Shader, "vertTexCoord"));
-            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(Shader, "vertTexCoord"), 2, Gl.GL_FLOAT, false, 2 * sizeof(float), IntPtr.Zero);
+            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(ShaderProgram, "Vert"));
+            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(ShaderProgram, "Vert"), 3, Gl.GL_FLOAT, false, 3 * sizeof(float), IntPtr.Zero);
+            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(ShaderProgram, "vertTexCoord"));
+            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(ShaderProgram, "vertTexCoord"), 2, Gl.GL_FLOAT, false, 2 * sizeof(float), IntPtr.Zero);
             Gl.BindVertexArray(0);
         }
 

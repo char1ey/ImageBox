@@ -30,11 +30,11 @@ namespace ImageBox
                 ih = image.Height - iy;
             }
 
-            Gl.UseProgram(image.Shader);
+            Gl.UseProgram(image.ShaderProgram);
 
             Gl.ActiveTexture(Gl.GL_TEXTURE0);
             Gl.BindTexture(Gl.GL_TEXTURE_2D, image.Id);
-            Gl.Uniform1(Gl.GetUniformLocation(image.Shader, "tex"), 0);
+            Gl.Uniform1(Gl.GetUniformLocation(image.ShaderProgram, "tex"), 0);
 
             Gl.PolygonMode(Gl.GL_FRONT, Gl.GL_FILL);
             Gl.Color(Color.Transparent);
