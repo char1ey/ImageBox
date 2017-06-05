@@ -40,7 +40,7 @@ namespace ImageBox
             ShaderProgram = Gl.CreateProgram();
 
             Gl.AttachShader(ShaderProgram, CreateShader(Gl.GL_VERTEX_SHADER, @"
-                #version 150
+                #version 330
                 in vec3 vert;
                 in vec2 vertTexCoord;
                 out vec2 fragTexCoord;
@@ -52,14 +52,15 @@ namespace ImageBox
                     gl_Position = vec4(vert, 1);
                 }
             "));
+
             Gl.AttachShader(ShaderProgram, CreateShader(Gl.GL_FRAGMENT_SHADER, @"
-                #version 150
+                #version 330
                 uniform sampler2D tex; 
                 in vec2 fragTexCoord;
                 out vec4 finalColor;
 
                 void main() {
-                    finalColor = texture(tex, fragTexCoord);
+                    finalColor = texture2D(tex, fragTexCoord);
                 }
                 "));
 
@@ -69,12 +70,6 @@ namespace ImageBox
 
             Gl.ValidateProgram(ShaderProgram);
             Gl.GetProgram(ShaderProgram, Gl.GL_LINK_STATUS, success);
-
-            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(ShaderProgram, "Vert"));
-            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(ShaderProgram, "Vert"), 3, Gl.GL_FLOAT, false, 3 * sizeof(float), IntPtr.Zero);
-            Gl.EnableVertexAttribArray((uint)Gl.GetAttribLocation(ShaderProgram, "vertTexCoord"));
-            Gl.VertexAttribPointer((uint)Gl.GetAttribLocation(ShaderProgram, "vertTexCoord"), 2, Gl.GL_FLOAT, false, 2 * sizeof(float), IntPtr.Zero);
-            Gl.BindVertexArray(0);
         }
 
         private static uint CreateShader(uint type, string source)

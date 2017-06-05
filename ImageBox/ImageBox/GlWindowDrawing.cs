@@ -30,26 +30,41 @@ namespace ImageBox
                 ih = image.Height - iy;
             }
 
-           // Gl.UseProgram(image.ShaderProgram);
+            Gl.UseProgram(image.ShaderProgram);
 
             Gl.ActiveTexture(Gl.GL_TEXTURE0);
             Gl.BindTexture(Gl.GL_TEXTURE_2D, image.Id);
             Gl.Uniform1(Gl.GetUniformLocation(image.ShaderProgram, "tex"), 0);
 
+            var vert = (uint)Gl.GetAttribLocation(image.ShaderProgram, "vert");
+            var tvert = (uint)Gl.GetAttribLocation(image.ShaderProgram, "vertTexCoord");
+
             Gl.PolygonMode(Gl.GL_FRONT, Gl.GL_FILL);
             Gl.Color(Color.Transparent);
             Gl.Enable(Gl.GL_TEXTURE_2D);
+
             Gl.Begin(Gl.GL_QUADS);
-            Gl.TexCoord(ix/image.Width, iy/image.Height); Gl.Vertex(x, y);
-            Gl.TexCoord(ix/image.Width, (iy + ih)/image.Height); Gl.Vertex(x, y + h);
-            Gl.TexCoord((ix + iw)/image.Width, (iy + ih)/image.Height); Gl.Vertex(x + w, y + h);
-            Gl.TexCoord((ix + iw)/image.Width, iy/image.Height); Gl.Vertex(x + w, y);
+
+                Gl.VertexAttrib3(vert, x, y, 0);
+                Gl.VertexAttrib2(tvert, ix/image.Width, iy/image.Height);
+
+                Gl.VertexAttrib3(vert, x, y + h, 0);
+                Gl.VertexAttrib2(tvert, ix / image.Width, (iy + ih) / image.Height);
+
+                Gl.VertexAttrib3(vert, x + w, y + h, 0);
+                Gl.VertexAttrib2(tvert, (ix + iw) / image.Width, (iy + ih) / image.Height);
+
+                Gl.VertexAttrib3(vert, x + w, y, 0);
+                Gl.VertexAttrib2(tvert, (ix + iw) / image.Width, iy / image.Height);
+
             Gl.End();
+
             Gl.Disable(Gl.GL_TEXTURE_2D);
             Gl.BindTexture(Gl.GL_TEXTURE_2D, 0);
-            Gl.Flush();
 
             Gl.UseProgram(0);
+
+            Gl.Flush();
         }
 
         public void DrawImage(GlImage image, float x, float y, float width, float height)
