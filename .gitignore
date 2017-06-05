@@ -2,4 +2,7 @@
 # Данный GITIGNORE-файл был автоматически создан Microsoft(R) Visual Studio.
 ################################################################################
 
-/ImageBox/ImageBoxSample/obj/Debug/ImageBoxSample.Properties.Resources.resources
+/ImageBox/ImageBoxSample/obj/
+/ImageBox/ImageBoxSample/bin/
+/ImageBox/ImageBox/obj/
+/ImageBox/ImageBox/bin/
