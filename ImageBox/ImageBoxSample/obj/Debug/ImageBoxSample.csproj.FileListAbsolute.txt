@@ -9,14 +9,3 @@ C:\Users\backsword\Documents\Projects\ImageBoxSample\obj\Debug\ImageBoxSample.Pr
 C:\Users\backsword\Documents\Projects\ImageBoxSample\obj\Debug\ImageBoxSample.csproj.GenerateResource.Cache
 C:\Users\backsword\Documents\Projects\ImageBoxSample\obj\Debug\ImageBoxSample.exe
 C:\Users\backsword\Documents\Projects\ImageBoxSample\obj\Debug\ImageBoxSample.pdb
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\bin\Debug\ImageBoxSample.exe.config
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\bin\Debug\ImageBoxSample.exe
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\bin\Debug\ImageBoxSample.pdb
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\bin\Debug\ImageBox.dll
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\bin\Debug\ImageBox.pdb
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.csprojResolveAssemblyReference.cache
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.Form1.resources
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.Properties.Resources.resources
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.csproj.GenerateResource.Cache
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.exe
-C:\Users\backsword\Documents\Projects\ImageBox\ImageBoxSample\obj\Debug\ImageBoxSample.pdb
