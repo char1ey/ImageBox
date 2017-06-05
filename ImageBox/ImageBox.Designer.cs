@@ -68,9 +68,9 @@
             // 
             this.imageBoxMiniMap.BorderColor = System.Drawing.Color.Empty;
             this.imageBoxMiniMap.BorderWidth = 0;
-            this.imageBoxMiniMap.Location = new System.Drawing.Point(504, 246);
+            this.imageBoxMiniMap.Location = new System.Drawing.Point(559, 282);
             this.imageBoxMiniMap.Name = "imageBoxMiniMap";
-            this.imageBoxMiniMap.Size = new System.Drawing.Size(282, 260);
+            this.imageBoxMiniMap.Size = new System.Drawing.Size(248, 238);
             this.imageBoxMiniMap.TabIndex = 3;
             this.imageBoxMiniMap.Text = "imageBoxMiniMap";
             // 

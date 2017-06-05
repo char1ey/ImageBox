@@ -45,6 +45,12 @@ namespace ImageBox
             }
         }
 
+        public Image Image
+        {
+            get { return imageBoxWindow.Image; }
+            set { imageBoxWindow.Image = value; }
+        }
+
         #endregion
 
 
@@ -150,9 +156,9 @@ namespace ImageBox
     public class MiniMapControlDesigner : ControlDesigner
     {
         public override void Initialize(IComponent component)
-        {
+        {  
             base.Initialize(component);
-            this.EnableDesignMode(((ImageBox)Control).MiniMap, "MiniMap");
+            EnableDesignMode(((ImageBox)Control).MiniMap, "MiniMap");
         }
     }
 }

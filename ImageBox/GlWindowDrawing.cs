@@ -30,7 +30,7 @@ namespace ImageBox
                 ih = image.Height - iy;
             }
 
-            Gl.UseProgram(image.ShaderProgram);
+           // Gl.UseProgram(image.ShaderProgram);
 
             Gl.ActiveTexture(Gl.GL_TEXTURE0);
             Gl.BindTexture(Gl.GL_TEXTURE_2D, image.Id);

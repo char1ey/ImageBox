@@ -1,0 +1,10 @@
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.ImageBox.resources
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.ImageBoxWindow.resources
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.ImageBoxMiniMap.resources
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.Properties.Resources.resources
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.csproj.GenerateResource.Cache
+C:\Users\backsword\Documents\Projects\ImageBox\bin\Debug\ImageBox.dll
+C:\Users\backsword\Documents\Projects\ImageBox\bin\Debug\ImageBox.pdb
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.dll
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.pdb
+C:\Users\backsword\Documents\Projects\ImageBox\obj\Debug\ImageBox.csprojResolveAssemblyReference.cache
