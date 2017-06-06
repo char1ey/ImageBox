@@ -39,6 +39,11 @@ namespace ImageBox
             var vert = (uint)Gl.GetAttribLocation(image.ShaderProgram, "vert");
             var tvert = (uint)Gl.GetAttribLocation(image.ShaderProgram, "vertTexCoord");
 
+            var projectionMatrix = new float[16];
+            Gl.GetFloat(Gl.GL_PROJECTION_MATRIX, projectionMatrix);
+            Gl.UniformMatrix4(Gl.GetUniformLocation(image.ShaderProgram, "projectionMatrix"), 1, false,
+                projectionMatrix);
+             
             Gl.PolygonMode(Gl.GL_FRONT, Gl.GL_FILL);
             Gl.Color(Color.Transparent);
             Gl.Enable(Gl.GL_TEXTURE_2D);

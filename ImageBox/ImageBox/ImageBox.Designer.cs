@@ -54,7 +54,6 @@
             // imageBoxWindow
             // 
             this.imageBoxWindow.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.imageBoxWindow.Image = ((System.Drawing.Image)(resources.GetObject("imageBoxWindow.Image")));
             this.imageBoxWindow.Location = new System.Drawing.Point(0, 0);
             this.imageBoxWindow.MouseControl = true;
             this.imageBoxWindow.MouseMoveButton = System.Windows.Forms.MouseButtons.Left;

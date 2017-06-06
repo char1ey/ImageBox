@@ -42,6 +42,7 @@
             // 
             // imageBox1.MiniMap
             // 
+            this.imageBox1.MiniMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.imageBox1.MiniMap.BorderColor = System.Drawing.Color.Red;
             this.imageBox1.MiniMap.BorderWidth = 2;
             this.imageBox1.MiniMap.Location = new System.Drawing.Point(473, 194);

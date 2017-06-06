@@ -34,10 +34,9 @@ namespace ImageBox
 
         #region properties
 
-        internal RectangleF CurrentImageView 
+        internal RectangleF CurrentImageView
         {
             get { return m_currentImageView; }
-            private set { m_currentImageView = value; }
         }
 
         internal GlWindow GlWindow { get; }
@@ -118,13 +117,13 @@ namespace ImageBox
             if (controlRatio < imageRatio)
             {
                 var density = (float)GlImage.Height / Height;
-                CurrentImageView = new RectangleF(-density * (Width / 2f - GlImage.Width / 2f / density),
+                m_currentImageView = new RectangleF(-density * (Width / 2f - GlImage.Width / 2f / density),
                                                     0, Width * density, Height * density);
             }
             else
             {
                 var density = (float)GlImage.Width / Width;
-                CurrentImageView = new RectangleF(0, -density * (Height / 2f - GlImage.Height / 2f / density),
+                m_currentImageView = new RectangleF(0, -density * (Height / 2f - GlImage.Height / 2f / density),
                                                        Width * density, Height * density);
             }
 
@@ -136,7 +135,7 @@ namespace ImageBox
                 m_currentImageView.Height = Height;
             }
 
-            Density = CurrentImageView.Width / Width;
+            Density = m_currentImageView.Width / Width;
         }
 
         private void FixImageView()
@@ -144,18 +143,18 @@ namespace ImageBox
             if (GlImage == null)
                 return;
 
-            if (CurrentImageView.Width > GlImage.Width)
-                m_currentImageView.X = -(CurrentImageView.Width - GlImage.Width) / 2;
-            else if (CurrentImageView.Right > GlImage.Width)
-                m_currentImageView.X -= CurrentImageView.Right - GlImage.Width;
-            else if (CurrentImageView.Left < 0)
+            if (m_currentImageView.Width > GlImage.Width)
+                m_currentImageView.X = -(m_currentImageView.Width - GlImage.Width) / 2;
+            else if (m_currentImageView.Right > GlImage.Width)
+                m_currentImageView.X -= m_currentImageView.Right - GlImage.Width;
+            else if (m_currentImageView.Left < 0)
                 m_currentImageView.X = 0;
 
-            if (CurrentImageView.Height > GlImage.Height)
-                m_currentImageView.Y = -(CurrentImageView.Height - GlImage.Height) / 2;
-            else if (CurrentImageView.Bottom > GlImage.Height)
-                m_currentImageView.Y -= CurrentImageView.Bottom - GlImage.Height;
-            else if (CurrentImageView.Top < 0)
+            if (m_currentImageView.Height > GlImage.Height)
+                m_currentImageView.Y = -(m_currentImageView.Height - GlImage.Height) / 2;
+            else if (m_currentImageView.Bottom > GlImage.Height)
+                m_currentImageView.Y -= m_currentImageView.Bottom - GlImage.Height;
+            else if (m_currentImageView.Top < 0)
                 m_currentImageView.Y = 0;
         }
 
@@ -169,13 +168,13 @@ namespace ImageBox
             if (Width == 0 && Height == 0 || GlImage == null)
                 return;
 
-            var dw = (CurrentImageView.Right - CurrentImageView.Left) * ZoomSpeed * delta;
-            var dh = (CurrentImageView.Bottom - CurrentImageView.Top) * ZoomSpeed * delta;
+            var dw = (m_currentImageView.Right - m_currentImageView.Left) * ZoomSpeed * delta;
+            var dh = (m_currentImageView.Bottom - m_currentImageView.Top) * ZoomSpeed * delta;
 
-            var left = CurrentImageView.Left + dw * position.X / Width;
-            var right = CurrentImageView.Right - dw * (1 - position.X / Width);
-            var top = CurrentImageView.Top + dh * position.Y / Height;
-            var bottom = CurrentImageView.Bottom - dh * (1 - position.Y / Height);
+            var left = m_currentImageView.Left + dw * position.X / Width;
+            var right = m_currentImageView.Right - dw * (1 - position.X / Width);
+            var top = m_currentImageView.Top + dh * position.Y / Height;
+            var bottom = m_currentImageView.Bottom - dh * (1 - position.Y / Height);
 
             if (Math.Min(right - left, bottom - top) < MinImageSize)
                 return;
@@ -190,9 +189,9 @@ namespace ImageBox
             m_currentImageView.Height = bottom - top;
 
             if (Width != 0)
-                Density = CurrentImageView.Width / Width;
+                Density = m_currentImageView.Width / Width;
             else if (Height != 0)
-                Density = CurrentImageView.Height / Height;
+                Density = m_currentImageView.Height / Height;
 
             FixImageView();
 
@@ -281,13 +280,13 @@ namespace ImageBox
             if (GlImage == null)
                 return;
 
-            if (Math.Abs(CurrentImageView.Width) < Eps)
+            if (Math.Abs(m_currentImageView.Width) < Eps)
                 CreateImageView();
 
             GlWindow.Begin();
 
             Gl.Clear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-            GlWindow.DrawImage(GlImage, ControlView, CurrentImageView);
+            GlWindow.DrawImage(GlImage, ControlView, m_currentImageView);
 
             GlWindow.End();
             GlWindow.SwapBuffers();
