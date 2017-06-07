@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlImage.cs" />
+    <Compile Include="GlTextureBrush.cs" />
     <Compile Include="GlWindowDrawing.cs" />
     <Compile Include="ImageBox.cs">
       <SubType>UserControl</SubType>

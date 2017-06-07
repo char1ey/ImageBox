@@ -50,16 +50,16 @@ namespace ImageBox
 
             Gl.Begin(Gl.GL_QUADS);
 
-                Gl.VertexAttrib3(vert, x, y, 0);
+                Gl.VertexAttrib2(vert, x, y);
                 Gl.VertexAttrib2(tvert, ix/image.Width, iy/image.Height);
 
-                Gl.VertexAttrib3(vert, x, y + h, 0);
+                Gl.VertexAttrib2(vert, x, y + h);
                 Gl.VertexAttrib2(tvert, ix / image.Width, (iy + ih) / image.Height);
 
-                Gl.VertexAttrib3(vert, x + w, y + h, 0);
+                Gl.VertexAttrib2(vert, x + w, y + h);
                 Gl.VertexAttrib2(tvert, (ix + iw) / image.Width, (iy + ih) / image.Height);
 
-                Gl.VertexAttrib3(vert, x + w, y, 0);
+                Gl.VertexAttrib2(vert, x + w, y);
                 Gl.VertexAttrib2(tvert, (ix + iw) / image.Width, iy / image.Height);
 
             Gl.End();

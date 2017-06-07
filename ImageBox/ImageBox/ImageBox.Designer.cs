@@ -62,7 +62,6 @@
             this.imageBoxWindow.TabIndex = 2;
             this.imageBoxWindow.Text = "imageBoxWindow";
             this.imageBoxWindow.ZoomOnWheel = true;
-            this.imageBoxWindow.Layout += new System.Windows.Forms.LayoutEventHandler(this.imageBoxWindow_Layout);
             // 
             // imageBoxMiniMap
             // 

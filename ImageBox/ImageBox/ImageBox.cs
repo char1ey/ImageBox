@@ -90,11 +90,6 @@ namespace ImageBox
             imageBoxWindow.Move(new PointF((e.NewValue - imageBoxWindow.CurrentImageView.X)/ imageBoxWindow.Density, 0));
         }
 
-        private void imageBoxWindow_Layout(object sender, LayoutEventArgs e)
-        {
-            imageBoxWindow.CreateImageView();
-        }
-
         #endregion
 
 

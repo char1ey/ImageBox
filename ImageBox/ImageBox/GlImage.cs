@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ImageBox
 {
-    internal class GlImage: IDisposable
+    public class GlImage: IDisposable
     {
         private readonly uint[] m_tex;
         
@@ -51,7 +51,7 @@ namespace ImageBox
                 {
                     fragTexCoord = vertTexCoord;
 
-                    gl_Position = projectionMatrix * vec4(vert, 1);
+                    gl_Position = projectionMatrix * vec4(vert.xy, 0, 1);
                 }
             "));
 
