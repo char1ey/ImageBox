@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImageBox));
             this.vScrollBar = new System.Windows.Forms.VScrollBar();
             this.hScrollBar = new System.Windows.Forms.HScrollBar();
             this.imageBoxWindow = new ImageBoxWindow();
@@ -54,6 +53,7 @@
             // imageBoxWindow
             // 
             this.imageBoxWindow.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imageBoxWindow.Image = null;
             this.imageBoxWindow.Location = new System.Drawing.Point(0, 0);
             this.imageBoxWindow.MouseControl = true;
             this.imageBoxWindow.MouseMoveButton = System.Windows.Forms.MouseButtons.Left;
@@ -62,6 +62,7 @@
             this.imageBoxWindow.TabIndex = 2;
             this.imageBoxWindow.Text = "imageBoxWindow";
             this.imageBoxWindow.ZoomOnWheel = true;
+            this.imageBoxWindow.Layout += new System.Windows.Forms.LayoutEventHandler(this.imageBoxWindow_Layout);
             // 
             // imageBoxMiniMap
             // 

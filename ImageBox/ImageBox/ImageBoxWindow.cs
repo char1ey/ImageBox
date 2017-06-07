@@ -76,12 +76,15 @@ namespace ImageBox
                 m_image?.Dispose();
                 m_image = value;
 
-                GlWindow.Begin();
-                GlImage = new GlImage((Bitmap)m_image);
-                GlWindow.End();
+                if (m_image != null)
+                {
+                    GlWindow.Begin();
+                    GlImage = new GlImage((Bitmap) m_image);
+                    GlWindow.End();
 
-                CreateImageView();            
-                Invalidate();
+                    CreateImageView();
+                    Invalidate();
+                }
             }
         }
 
@@ -106,7 +109,7 @@ namespace ImageBox
 
         #region change view methods
 
-        private void CreateImageView()
+        internal void CreateImageView()
         {
             if (Width == 0 || Height == 0 || GlImage == null)
                 return;

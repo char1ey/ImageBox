@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Windows.Forms.Design;
 
 namespace ImageBox
 {
@@ -91,6 +90,11 @@ namespace ImageBox
             imageBoxWindow.Move(new PointF((e.NewValue - imageBoxWindow.CurrentImageView.X)/ imageBoxWindow.Density, 0));
         }
 
+        private void imageBoxWindow_Layout(object sender, LayoutEventArgs e)
+        {
+            imageBoxWindow.CreateImageView();
+        }
+
         #endregion
 
 
@@ -151,14 +155,5 @@ namespace ImageBox
         }
 
         #endregion
-    }
-
-    public class MiniMapControlDesigner : ControlDesigner
-    {
-        public override void Initialize(IComponent component)
-        {  
-            base.Initialize(component);
-            EnableDesignMode(((ImageBox)Control).MiniMap, "MiniMap");
-        }
     }
 }
